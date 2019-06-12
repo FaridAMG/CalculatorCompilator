@@ -1,0 +1,700 @@
+Terminals unused in grammar
+
+   uminu
+
+
+Grammar
+
+    0 $accept: ss $end
+
+    1 ss: exp
+
+    2 exp: exp '+' exp
+    3    | exp '-' exp
+    4    | exp '*' exp
+    5    | exp '/' exp
+    6    | '-' exp
+    7    | '(' exp ')'
+    8    | SIN '(' exp ')'
+    9    | COS '(' exp ')'
+   10    | TAN '(' exp ')'
+   11    | LOG '(' exp ')'
+   12    | LN '(' exp ')'
+   13    | SQRT '(' exp ')'
+   14    | SQURE '(' exp ')'
+   15    | CUBE '(' exp ')'
+   16    | num
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'(' (40) 7 8 9 10 11 12 13 14 15
+')' (41) 7 8 9 10 11 12 13 14 15
+'*' (42) 4
+'+' (43) 2
+'-' (45) 3 6
+'/' (47) 5
+error (256)
+num (258) 16
+SIN (259) 8
+COS (260) 9
+TAN (261) 10
+LOG (262) 11
+LN (263) 12
+SQRT (264) 13
+SQURE (265) 14
+CUBE (266) 15
+uminu (267)
+
+
+Nonterminals, with rules where they appear
+
+$accept (19)
+    on left: 0
+ss (20)
+    on left: 1, on right: 0
+exp (21)
+    on left: 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16, on right: 1 2 3
+    4 5 6 7 8 9 10 11 12 13 14 15
+
+
+State 0
+
+    0 $accept: . ss $end
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    ss   go to state 12
+    exp  go to state 13
+
+
+State 1
+
+   16 exp: num .
+
+    $default  reduce using rule 16 (exp)
+
+
+State 2
+
+    8 exp: SIN . '(' exp ')'
+
+    '('  shift, and go to state 14
+
+
+State 3
+
+    9 exp: COS . '(' exp ')'
+
+    '('  shift, and go to state 15
+
+
+State 4
+
+   10 exp: TAN . '(' exp ')'
+
+    '('  shift, and go to state 16
+
+
+State 5
+
+   11 exp: LOG . '(' exp ')'
+
+    '('  shift, and go to state 17
+
+
+State 6
+
+   12 exp: LN . '(' exp ')'
+
+    '('  shift, and go to state 18
+
+
+State 7
+
+   13 exp: SQRT . '(' exp ')'
+
+    '('  shift, and go to state 19
+
+
+State 8
+
+   14 exp: SQURE . '(' exp ')'
+
+    '('  shift, and go to state 20
+
+
+State 9
+
+   15 exp: CUBE . '(' exp ')'
+
+    '('  shift, and go to state 21
+
+
+State 10
+
+    6 exp: '-' . exp
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 22
+
+
+State 11
+
+    7 exp: '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 23
+
+
+State 12
+
+    0 $accept: ss . $end
+
+    $end  shift, and go to state 24
+
+
+State 13
+
+    1 ss: exp .
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+
+    $default  reduce using rule 1 (ss)
+
+
+State 14
+
+    8 exp: SIN '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 29
+
+
+State 15
+
+    9 exp: COS '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 30
+
+
+State 16
+
+   10 exp: TAN '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 31
+
+
+State 17
+
+   11 exp: LOG '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 32
+
+
+State 18
+
+   12 exp: LN '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 33
+
+
+State 19
+
+   13 exp: SQRT '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 34
+
+
+State 20
+
+   14 exp: SQURE '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 35
+
+
+State 21
+
+   15 exp: CUBE '(' . exp ')'
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 36
+
+
+State 22
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+    6    | '-' exp .
+
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+
+    $default  reduce using rule 6 (exp)
+
+
+State 23
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+    7    | '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 37
+
+
+State 24
+
+    0 $accept: ss $end .
+
+    $default  accept
+
+
+State 25
+
+    2 exp: exp '+' . exp
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 38
+
+
+State 26
+
+    3 exp: exp '-' . exp
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 39
+
+
+State 27
+
+    4 exp: exp '*' . exp
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 40
+
+
+State 28
+
+    5 exp: exp '/' . exp
+
+    num    shift, and go to state 1
+    SIN    shift, and go to state 2
+    COS    shift, and go to state 3
+    TAN    shift, and go to state 4
+    LOG    shift, and go to state 5
+    LN     shift, and go to state 6
+    SQRT   shift, and go to state 7
+    SQURE  shift, and go to state 8
+    CUBE   shift, and go to state 9
+    '-'    shift, and go to state 10
+    '('    shift, and go to state 11
+
+    exp  go to state 41
+
+
+State 29
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+    8    | SIN '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 42
+
+
+State 30
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+    9    | COS '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 43
+
+
+State 31
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+   10    | TAN '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 44
+
+
+State 32
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+   11    | LOG '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 45
+
+
+State 33
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+   12    | LN '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 46
+
+
+State 34
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+   13    | SQRT '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 47
+
+
+State 35
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+   14    | SQURE '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 48
+
+
+State 36
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+   15    | CUBE '(' exp . ')'
+
+    '+'  shift, and go to state 25
+    '-'  shift, and go to state 26
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+    ')'  shift, and go to state 49
+
+
+State 37
+
+    7 exp: '(' exp ')' .
+
+    $default  reduce using rule 7 (exp)
+
+
+State 38
+
+    2 exp: exp . '+' exp
+    2    | exp '+' exp .
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+
+    $default  reduce using rule 2 (exp)
+
+
+State 39
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    3    | exp '-' exp .
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+
+    '*'  shift, and go to state 27
+    '/'  shift, and go to state 28
+
+    $default  reduce using rule 3 (exp)
+
+
+State 40
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    4    | exp '*' exp .
+    5    | exp . '/' exp
+
+    $default  reduce using rule 4 (exp)
+
+
+State 41
+
+    2 exp: exp . '+' exp
+    3    | exp . '-' exp
+    4    | exp . '*' exp
+    5    | exp . '/' exp
+    5    | exp '/' exp .
+
+    $default  reduce using rule 5 (exp)
+
+
+State 42
+
+    8 exp: SIN '(' exp ')' .
+
+    $default  reduce using rule 8 (exp)
+
+
+State 43
+
+    9 exp: COS '(' exp ')' .
+
+    $default  reduce using rule 9 (exp)
+
+
+State 44
+
+   10 exp: TAN '(' exp ')' .
+
+    $default  reduce using rule 10 (exp)
+
+
+State 45
+
+   11 exp: LOG '(' exp ')' .
+
+    $default  reduce using rule 11 (exp)
+
+
+State 46
+
+   12 exp: LN '(' exp ')' .
+
+    $default  reduce using rule 12 (exp)
+
+
+State 47
+
+   13 exp: SQRT '(' exp ')' .
+
+    $default  reduce using rule 13 (exp)
+
+
+State 48
+
+   14 exp: SQURE '(' exp ')' .
+
+    $default  reduce using rule 14 (exp)
+
+
+State 49
+
+   15 exp: CUBE '(' exp ')' .
+
+    $default  reduce using rule 15 (exp)
