@@ -2,6 +2,9 @@
 %{
     #include<stdio.h>
     #include<math.h>
+    #include<stdlib.h>
+    int yylex();
+    void yyerror(const char *s);
 %}
 
 %union   // Defines possible symbol types
@@ -41,16 +44,15 @@ exp: exp'+'exp {$$=$1+$3;}
 
 /*extern FILE *yyin; */
 
-main(){
+int main(){
   do{
       printf("\n enter your expression please!");
       yyparse();   /*Parses the sentence repeatedly till the i/p runs out */
     }while(1);
+    return 0;
 }
 
-yyerror(s) /*Prints the error message*/
 
-char *s;
-{
-printf("ERROR");
-}
+void yyerror (char const *s) {
+   fprintf (stderr, "%s\n", s);
+ }
